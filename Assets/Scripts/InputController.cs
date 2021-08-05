@@ -18,7 +18,7 @@ public class InputController : MonoBehaviour
     public SteamVR_Action_Boolean delectAction;
 
     public SteamVR_Action_Boolean grabModelAction;
-    public SteamVR_Action_Boolean getModelAction;
+    public SteamVR_Action_Boolean interactUIAction;
 
     public SteamVR_Action_Boolean editorAction;//leftHand
     public SteamVR_Action_Boolean updateAction;//rightHand

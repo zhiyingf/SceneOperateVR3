@@ -89,11 +89,19 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Get
+        public virtual SteamVR_Action_Pose Pose
         {
             get
             {
-                return SteamVR_Actions.sceneoperate_Get;
+                return SteamVR_Actions.sceneoperate_Pose;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean InteractUI
+        {
+            get
+            {
+                return SteamVR_Actions.sceneoperate_InteractUI;
             }
         }
         

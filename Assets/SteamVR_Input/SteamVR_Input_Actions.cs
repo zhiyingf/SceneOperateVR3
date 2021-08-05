@@ -57,7 +57,9 @@ namespace Valve.VR
         
         private static SteamVR_Action_Boolean p_sceneoperate_Subtract;
         
-        private static SteamVR_Action_Boolean p_sceneoperate_Get;
+        private static SteamVR_Action_Pose p_sceneoperate_Pose;
+        
+        private static SteamVR_Action_Boolean p_sceneoperate_InteractUI;
         
         private static SteamVR_Action_Vibration p_sceneoperate_Haptic;
         
@@ -221,11 +223,19 @@ namespace Valve.VR
             }
         }
         
-        public static SteamVR_Action_Boolean sceneoperate_Get
+        public static SteamVR_Action_Pose sceneoperate_Pose
         {
             get
             {
-                return SteamVR_Actions.p_sceneoperate_Get.GetCopy<SteamVR_Action_Boolean>();
+                return SteamVR_Actions.p_sceneoperate_Pose.GetCopy<SteamVR_Action_Pose>();
+            }
+        }
+        
+        public static SteamVR_Action_Boolean sceneoperate_InteractUI
+        {
+            get
+            {
+                return SteamVR_Actions.p_sceneoperate_InteractUI.GetCopy<SteamVR_Action_Boolean>();
             }
         }
         
@@ -260,7 +270,8 @@ namespace Valve.VR
                     SteamVR_Actions.sceneoperate_SaveMesh,
                     SteamVR_Actions.sceneoperate_Intersection,
                     SteamVR_Actions.sceneoperate_Subtract,
-                    SteamVR_Actions.sceneoperate_Get,
+                    SteamVR_Actions.sceneoperate_Pose,
+                    SteamVR_Actions.sceneoperate_InteractUI,
                     SteamVR_Actions.sceneoperate_Haptic};
             Valve.VR.SteamVR_Input.actionsIn = new Valve.VR.ISteamVR_Action_In[] {
                     SteamVR_Actions.default_InteractUI,
@@ -282,7 +293,8 @@ namespace Valve.VR
                     SteamVR_Actions.sceneoperate_SaveMesh,
                     SteamVR_Actions.sceneoperate_Intersection,
                     SteamVR_Actions.sceneoperate_Subtract,
-                    SteamVR_Actions.sceneoperate_Get};
+                    SteamVR_Actions.sceneoperate_Pose,
+                    SteamVR_Actions.sceneoperate_InteractUI};
             Valve.VR.SteamVR_Input.actionsOut = new Valve.VR.ISteamVR_Action_Out[] {
                     SteamVR_Actions.default_Haptic,
                     SteamVR_Actions.sceneoperate_Haptic};
@@ -291,7 +303,8 @@ namespace Valve.VR
                     SteamVR_Actions.sceneoperate_Haptic};
             Valve.VR.SteamVR_Input.actionsPose = new Valve.VR.SteamVR_Action_Pose[] {
                     SteamVR_Actions.default_Pose,
-                    SteamVR_Actions.mixedreality_ExternalCamera};
+                    SteamVR_Actions.mixedreality_ExternalCamera,
+                    SteamVR_Actions.sceneoperate_Pose};
             Valve.VR.SteamVR_Input.actionsBoolean = new Valve.VR.SteamVR_Action_Boolean[] {
                     SteamVR_Actions.default_InteractUI,
                     SteamVR_Actions.default_Teleport,
@@ -307,7 +320,7 @@ namespace Valve.VR
                     SteamVR_Actions.sceneoperate_SaveMesh,
                     SteamVR_Actions.sceneoperate_Intersection,
                     SteamVR_Actions.sceneoperate_Subtract,
-                    SteamVR_Actions.sceneoperate_Get};
+                    SteamVR_Actions.sceneoperate_InteractUI};
             Valve.VR.SteamVR_Input.actionsSingle = new Valve.VR.SteamVR_Action_Single[] {
                     SteamVR_Actions.buggy_Throttle};
             Valve.VR.SteamVR_Input.actionsVector2 = new Valve.VR.SteamVR_Action_Vector2[] {
@@ -333,7 +346,7 @@ namespace Valve.VR
                     SteamVR_Actions.sceneoperate_SaveMesh,
                     SteamVR_Actions.sceneoperate_Intersection,
                     SteamVR_Actions.sceneoperate_Subtract,
-                    SteamVR_Actions.sceneoperate_Get};
+                    SteamVR_Actions.sceneoperate_InteractUI};
         }
         
         private static void PreInitActions()
@@ -358,7 +371,8 @@ namespace Valve.VR
             SteamVR_Actions.p_sceneoperate_SaveMesh = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sceneoperate/in/SaveMesh")));
             SteamVR_Actions.p_sceneoperate_Intersection = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sceneoperate/in/Intersection")));
             SteamVR_Actions.p_sceneoperate_Subtract = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sceneoperate/in/Subtract")));
-            SteamVR_Actions.p_sceneoperate_Get = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sceneoperate/in/Get")));
+            SteamVR_Actions.p_sceneoperate_Pose = ((SteamVR_Action_Pose)(SteamVR_Action.Create<SteamVR_Action_Pose>("/actions/sceneoperate/in/Pose")));
+            SteamVR_Actions.p_sceneoperate_InteractUI = ((SteamVR_Action_Boolean)(SteamVR_Action.Create<SteamVR_Action_Boolean>("/actions/sceneoperate/in/InteractUI")));
             SteamVR_Actions.p_sceneoperate_Haptic = ((SteamVR_Action_Vibration)(SteamVR_Action.Create<SteamVR_Action_Vibration>("/actions/sceneoperate/out/Haptic")));
         }
     }

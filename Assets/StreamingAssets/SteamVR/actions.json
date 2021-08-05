@@ -88,7 +88,12 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/sceneoperate/in/Get",
+      "name": "/actions/sceneoperate/in/Pose",
+      "type": "pose",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/sceneoperate/in/InteractUI",
       "type": "boolean"
     },
     {
