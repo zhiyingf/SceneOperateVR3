@@ -8,7 +8,6 @@ namespace Valve.VR.Extras
     {
         public SteamVR_Behaviour_Pose pose;
 
-        //public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.__actions_default_in_InteractUI;
         public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.GetBooleanAction("InteractUI");
 
         public bool active = true;
@@ -144,7 +143,7 @@ namespace Valve.VR.Extras
 
             if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
             {
-                pointer.transform.localScale = new Vector3(thickness * 5f, thickness * 5f, dist);
+                pointer.transform.localScale = new Vector3(thickness * 2f, thickness * 2f, dist);
                 pointer.GetComponent<MeshRenderer>().material.color = clickColor;
             }
             else

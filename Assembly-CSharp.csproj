@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\SceneSDF.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\AttachScriptable.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\MarchingCubes.cs" />
+    <Compile Include="Assets\Scripts\SelectMenuUI\GetModelHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SDF\50\0092-50.txt" />
