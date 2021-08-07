@@ -1,29 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Valve.VR.Extras;
+using SelectMenuUI;
+using UnityEngine.EventSystems;
 
 public class GetModelHandler : MonoBehaviour
 {
-    public SteamVR_LaserPointer laserPointer;
+    public LaserPointer laserPointer;
     public Transform candidateModels;
     public Transform parentModel;
 
     void Awake()
     {
-        //laserPointer.PointerIn += PointerInside;
-        //laserPointer.PointerOut += PointerOutside;
         laserPointer.PointerClick += PointerClick;
     }
 
     public void PointerClick(object sender, PointerEventArgs e)
     {
-        //Debug.Log(System.Environment.CurrentDirectory);
-        Debug.Log(e.target.name + "--PointerClick");
-        if(e.target.tag != "image")
-        {
-            return;
-        }
         GameObject model = candidateModels.Find(e.target.name).Find(e.target.name).gameObject;
         GameObject newModel = Instantiate(model, transform.position, transform.rotation, parentModel);
         //Rigidbody newModelRig = newModel.AddComponent<Rigidbody>();
@@ -33,14 +26,12 @@ public class GetModelHandler : MonoBehaviour
         //newModelCol.isTrigger = true;
     }
 
-    public void PointerInside(object sender, PointerEventArgs e)
+    public void ProcessDrag(PointerEventData eventData)
     {
-        Debug.Log(e.target.name + "--PointerInside");
-    }
-
-    public void PointerOutside(object sender, PointerEventArgs e)
-    {
-        Debug.Log(e.target.name + "--PointerOutside");
+        if (eventData.dragging && eventData.pointerDrag != null)
+        {
+            ExecuteEvents.Execute(eventData.pointerDrag, eventData, ExecuteEvents.dragHandler);
+        }
     }
 
 

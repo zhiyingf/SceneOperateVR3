@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Compute\UseSdfBufShader.cs" />
     <Compile Include="Assets\Scripts\SaveMesh\EditorUtil.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\IMarching.cs" />
+    <Compile Include="Assets\Scripts\ActionControl\SelectMenuUIController.cs" />
     <Compile Include="Assets\Scripts\Compute\UseSdfTexShader.cs" />
     <Compile Include="Assets\Scripts\ObjSdfTable.cs" />
     <Compile Include="Assets\Scripts\SceneSDFAreaEditor.cs" />
@@ -83,7 +84,7 @@
     <Compile Include="Assets\Scripts\SceneSDF.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\AttachScriptable.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\MarchingCubes.cs" />
-    <Compile Include="Assets\Scripts\ActionControl\SelectMenuUIController.cs" />
+    <Compile Include="Assets\Scripts\SelectMenuUI\LaserPointer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SDF\50\0092-50.txt" />

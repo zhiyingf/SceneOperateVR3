@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - image
+  - scrollview
+  - scrollbar
   layers:
   - Default
   - TransparentFX
