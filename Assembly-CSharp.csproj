@@ -58,11 +58,12 @@
     <Compile Include="Assets\Scripts\DataPreprocess\SetScriptableObj.cs" />
     <Compile Include="Assets\Scripts\HyperparaSet.cs" />
     <Compile Include="Assets\Scripts\Compute\UseMCshader.cs" />
+    <Compile Include="Assets\Scripts\SelectMenuUI\GetModelHandler.cs" />
     <Compile Include="Assets\Scripts\SceneSDFEditor.cs" />
     <Compile Include="Assets\Scripts\Compute\UseSdfShader.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\Marching.cs" />
     <Compile Include="Assets\Scripts\ActionControl\ControllerGrabObject.cs" />
-    <Compile Include="Assets\Scripts\ActionControl\UpdateMesh.cs" />
+    <Compile Include="Assets\Scripts\ActionControl\UpdateMeshController.cs" />
     <Compile Include="Assets\Scripts\BooleanType.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\UseMC.cs" />
     <Compile Include="Assets\Scripts\SaveMesh\SaveMeshController.cs" />
@@ -82,7 +83,7 @@
     <Compile Include="Assets\Scripts\SceneSDF.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\AttachScriptable.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\MarchingCubes.cs" />
-    <Compile Include="Assets\Scripts\SelectMenuUI\GetModelHandler.cs" />
+    <Compile Include="Assets\Scripts\ActionControl\SelectMenuUIController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SDF\50\0092-50.txt" />

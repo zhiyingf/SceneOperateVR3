@@ -38,7 +38,8 @@ public class InputController : MonoBehaviour
 
     public GrabAddDelect grabAddDelectController;
     public SaveMeshController saveMeshController;
-    public UpdateMesh updateMeshController;
+    public UpdateMeshController updateMeshController;
+    public SelectMenuUIController selectMenuUIController;
 
     private Action currentAction = Action.Idle;
     private bool waitingForConfirm = false;
@@ -112,7 +113,11 @@ public class InputController : MonoBehaviour
                 updateMeshController.UpdateSDFMeshOnce();
                 Debug.Log("right updateAction!");
             }
-
+            else if (selectMenuAction.GetStateDown(primarySource))
+            {
+                selectMenuUIController.SwitchToMenuMode();
+                Debug.Log("right selectMenuAction!");
+            }
 
             //left hand
             if (grabModelAction.GetLastStateDown(secondarySource))
@@ -152,10 +157,15 @@ public class InputController : MonoBehaviour
                     Debug.Log("left delectAction!");
                 }
             }
-            else if (editorAction.GetStateDown(secondarySource))
+            //else if (editorAction.GetStateDown(secondarySource))
+            //{
+            //    updateMeshController.UpdateSDFMeshAways();
+            //    Debug.Log("editorAction!");
+            //}
+            else if (updateAction.GetStateDown(secondarySource))
             {
-                updateMeshController.UpdateSDFMeshAways();
-                Debug.Log("editorAction!");
+                updateMeshController.UpdateSDFMeshOnce();
+                Debug.Log("left updateAction!");
             }
             else if (saveMeshAction.GetStateDown(secondarySource))
             {
@@ -177,7 +187,8 @@ public class InputController : MonoBehaviour
                 currentAction = Action.Idle;
                 grabAddDelectController.ReleaseObject(true);
             }
-        }else if (currentAction.Equals(Action.Select))
+        }
+        else if (currentAction.Equals(Action.Select))
         {
 
         }

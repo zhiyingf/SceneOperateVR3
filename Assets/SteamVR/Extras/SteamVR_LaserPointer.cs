@@ -10,7 +10,7 @@ namespace Valve.VR.Extras
 
         public SteamVR_Action_Boolean interactWithUI = SteamVR_Input.GetBooleanAction("InteractUI");
 
-        public bool active = true;
+        //public bool active = true;
         public Color color;
         public float thickness = 0.002f;
         public Color clickColor = Color.green;
@@ -141,9 +141,9 @@ namespace Valve.VR.Extras
                 OnPointerClick(argsClick);
             }
 
-            if (interactWithUI != null && interactWithUI.GetState(pose.inputSource))
+            if (interactWithUI.GetState(pose.inputSource))
             {
-                pointer.transform.localScale = new Vector3(thickness * 2f, thickness * 2f, dist);
+                pointer.transform.localScale = new Vector3(thickness, thickness, dist);
                 pointer.GetComponent<MeshRenderer>().material.color = clickColor;
             }
             else
