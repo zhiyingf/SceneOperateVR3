@@ -32,17 +32,27 @@ namespace SelectMenuUI
 
         private const float distMost = 100f;
 
+        public static Vector2 ScreenCenterPoint { get { return new Vector2(Screen.width * 0.5f, Screen.height * 0.5f); } }
+
         public virtual void OnPointerClick(PointerEventArgs e)
         {
             if (PointerClick != null)
                 PointerClick(this, e);
         }
 
+        public virtual void OnProcessDrag(PointerEventData e)
+        {
+            if (ProcessDrag != null)
+            {
+                ProcessDrag(this, e);
+            }
+        }
+
         private void Update()
         {
             Ray raycast = new Ray(transform.position, transform.forward);
             RaycastHit hit;
-            bool bHit = Physics.Raycast(raycast, out hit);
+            bool bHit = Physics.Raycast(raycast, out hit, 100f);
 
             if (!bHit)
             {
@@ -50,8 +60,8 @@ namespace SelectMenuUI
                 reticle.SetActive(false);
                 return;
             }
-
-            string tag = hit.collider.gameObject.tag;
+            GameObject gameObject = hit.collider.gameObject;
+            string tag = gameObject.tag;
            
             if (tag != "scrollview" && tag != "image" && tag != "scrollbar")
             {
@@ -88,9 +98,19 @@ namespace SelectMenuUI
                 OnPointerClick(argsClick);
             }
 
-            if(tag == "scrollbar"&& interactWithUI.GetState(pose.inputSource))
+            if(tag == "scrollbar" && interactWithUI.GetState(pose.inputSource))
             {
-                //PointerEventData pointerData = new PointerEventData();
+                PointerEventData pointerData = new PointerEventData(EventSystem.current);
+                pointerData.pointerDrag = gameObject;
+                pointerData.button = PointerEventData.InputButton.Left;
+                Debug.Log(gameObject);
+                pointerData.dragging = true;
+                pointerData.position = ScreenCenterPoint;
+                pointerData.pressPosition = reticle.transform.position;
+                
+
+
+                OnProcessDrag(pointerData);
             }
             
         }
