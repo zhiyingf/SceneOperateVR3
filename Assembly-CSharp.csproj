@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\ActionControl\SetCollider.cs" />
     <Compile Include="Assets\Scripts\ActionControl\ActionsTest.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\SetScriptableObj.cs" />
+    <Compile Include="Assets\Scripts\SelectMenuUI\LaserPointer.cs" />
     <Compile Include="Assets\Scripts\HyperparaSet.cs" />
     <Compile Include="Assets\Scripts\Compute\UseMCshader.cs" />
     <Compile Include="Assets\Scripts\SelectMenuUI\GetModelHandler.cs" />
@@ -84,7 +85,7 @@
     <Compile Include="Assets\Scripts\SceneSDF.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\AttachScriptable.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\MarchingCubes.cs" />
-    <Compile Include="Assets\Scripts\SelectMenuUI\LaserPointer.cs" />
+    <Compile Include="Assets\Scripts\SelectMenuUI\PositionSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SDF\50\0092-50.txt" />

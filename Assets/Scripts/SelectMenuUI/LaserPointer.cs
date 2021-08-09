@@ -48,6 +48,13 @@ namespace SelectMenuUI
             }
         }
 
+        private void OnDisable()
+        {
+            pointer.SetActive(false);
+            reticle.SetActive(false);
+        }
+
+
         private void Update()
         {
             Ray raycast = new Ray(transform.position, transform.forward);
