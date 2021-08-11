@@ -25,6 +25,12 @@ public class SceneBox
         SdfShader = sdfShader;
     }
 
+    public void SetScriptable(out ManagerScriptableObject scriptableSDF)
+    {
+        scriptableSDF = ScriptableObject.CreateInstance<ManagerScriptableObject>();
+        scriptableSDF.SetValue(ncells + Vector3Int.one, localBox, TexMatrix);
+    }
+
     public void UpdateSDF(MeshFilter objA, MeshFilter objB,BooleanType type)
     {
         Bounds boundsA = objA.GetComponent<Renderer>().bounds;

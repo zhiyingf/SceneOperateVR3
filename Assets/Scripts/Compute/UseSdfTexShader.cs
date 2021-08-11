@@ -187,13 +187,6 @@ public class UseSdfTexShader
         renderTex.wrapMode = TextureWrapMode.Clamp;
         renderTex.useMipMap = false;
         renderTex.Create(); //如果不执行create(),Shader执行结束像素也不会被修改
-
-        //for (int i = 0; i < renderTex.volumeDepth; i++)
-        //{
-        //    Graphics.Blit(tex3D, renderTex, i, i); //rendertexture 赋值的方法是blit 但是3d render texture似乎只在第一层作用？其实是只bilt 1 层
-        //}
-        //Graphics.CopyTexture(tex3D, renderTex);
-        //Graphics.ConvertTexture(tex3D, renderTex);
     }
 
     private void ReleaseBuffers(ref ComputeBuffer buf)

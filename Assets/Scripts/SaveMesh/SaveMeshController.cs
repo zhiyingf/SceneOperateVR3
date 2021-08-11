@@ -12,6 +12,7 @@ public class SaveMeshController : MonoBehaviour
     [SerializeField]
     private string ExportFolderName = "SceneResult";
 
+
     public void ExportToOBJ(string fileName = null)
     {
         string name = fileName ?? DefaultFileName();
@@ -20,6 +21,14 @@ public class SaveMeshController : MonoBehaviour
 
         name = Path.Combine(path, name + ".obj");
         GameObject gameObject = Instantiate(scenesdfArea.gameObject);
+
+        AttachScriptable scriptableData = gameObject.AddComponent<AttachScriptable>();
+        scenesdfArea.SB.SetScriptable(out scriptableData.Scriptable);
+        //Rigidbody rigid = gameObject.AddComponent<Rigidbody>();
+        //rigid.useGravity = false;
+        gameObject.GetComponent<MeshRenderer>().material.color = new Color(0.45f, 0.45f, 0.45f, 1.0f);
+        gameObject.tag = "Untagged";
+
         ExportMesh.ExportMeshToObj(gameObject, name);
     }
 

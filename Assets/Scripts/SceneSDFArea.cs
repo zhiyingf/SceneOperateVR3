@@ -6,6 +6,8 @@ using UnityEngine;
 [AddComponentMenu("SceneOperate/Scene Operation Area")]
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
+//[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(MeshCollider))]
 [ExecuteInEditMode]
 
 public class SceneSDFArea : MonoBehaviour
@@ -17,8 +19,6 @@ public class SceneSDFArea : MonoBehaviour
 
     public SetCollider setColliderLeft;
     public SetCollider setColliderRight;
-
-    //private List<OpAndType> operations;
 
     private Dictionary<MeshFilter, BooleanType> operations;
 
@@ -85,11 +85,11 @@ public class SceneSDFArea : MonoBehaviour
         }
     }
 
+
     // Start is called before the first frame update
     void Start()
     {
         SB = new SceneBox(SdfShader);
-        //operations = new List<OpAndType>();
         operations = new Dictionary<MeshFilter, BooleanType>();
     }
 
@@ -180,6 +180,7 @@ public class SceneSDFArea : MonoBehaviour
             UseMcShader mc = new UseMcShader(SB, McShader);
             mc.ComputeMC();
             GetComponent<MeshFilter>().mesh = mc.mesh;
+            GetComponent<MeshCollider>().sharedMesh = mc.mesh;
         }
         else
         {
@@ -240,6 +241,7 @@ public class SceneSDFArea : MonoBehaviour
         {
             if (colliderLeft)
             {
+                if (colliderLeft.tag == "operater") return false;
                 if (operations.TryGetValue(colliderLeft, out BooleanType type1))
                 {
                     if (type != type1)
@@ -261,6 +263,7 @@ public class SceneSDFArea : MonoBehaviour
         {
             if (colliderRight)
             {
+                if (colliderRight.tag == "operater") return false;
                 if (operations.TryGetValue(colliderRight, out BooleanType type1))
                 {
                     if (type != type1)
