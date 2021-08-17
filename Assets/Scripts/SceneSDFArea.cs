@@ -34,59 +34,60 @@ public class SceneSDFArea : MonoBehaviour
     public MeshFilter objectInhandLeft;
     public MeshFilter objectInhandRight;
 
-    public struct OpAndType
-    {
-        public MeshFilter mesh;
-        public BooleanType type;
-        public OpState state;
-        //int orderId;
-        public OpAndType(MeshFilter mesh1, BooleanType type1, OpState state1)
-        {
-            mesh = mesh1;
-            type = type1;
-            state = state1;
-        }
+    //public struct OpAndType
+    //{
+    //    public MeshFilter mesh;
+    //    public BooleanType type;
+    //    public OpState state;
+    //    //int orderId;
+    //    public OpAndType(MeshFilter mesh1, BooleanType type1, OpState state1)
+    //    {
+    //        mesh = mesh1;
+    //        type = type1;
+    //        state = state1;
+    //    }
 
-        public OpAndType(MeshFilter mesh1, BooleanType type1)
-        {
-            mesh = mesh1;
-            type = type1;
-            state = new OpState(mesh.transform);
-        }
-    }
+    //    public OpAndType(MeshFilter mesh1, BooleanType type1)
+    //    {
+    //        mesh = mesh1;
+    //        type = type1;
+    //        state = new OpState(mesh.transform);
+    //    }
+    //}
 
-    public struct OpState
-    {
-        public Vector3 postion;
-        public Quaternion rotation;
-        public Vector3 scale;
+    //public struct OpState
+    //{
+    //    public Vector3 postion;
+    //    public Quaternion rotation;
+    //    public Vector3 scale;
 
-        public OpState(Vector3 pos, Quaternion rot, Vector3 sc)
-        {
-            postion = pos;
-            rotation = rot;
-            scale = sc;
-        }
+    //    public OpState(Vector3 pos, Quaternion rot, Vector3 sc)
+    //    {
+    //        postion = pos;
+    //        rotation = rot;
+    //        scale = sc;
+    //    }
 
-        public OpState(in Transform tran)
-        {
-            postion = tran.position;
-            rotation = tran.rotation;
-            scale = tran.localScale;
-        }
+    //    public OpState(in Transform tran)
+    //    {
+    //        postion = tran.position;
+    //        rotation = tran.rotation;
+    //        scale = tran.localScale;
+    //    }
 
-        public bool changed(in Transform tran)
-        {
-            if (tran.position != postion || tran.rotation != rotation || tran.lossyScale != scale)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
+    //    public bool changed(in Transform tran)
+    //    {
+    //        if (tran.position != postion || tran.rotation != rotation || tran.lossyScale != scale)
+    //        {
+    //            return true;
+    //        }
+    //        return false;
+    //    }
+    //}
 
 
     // Start is called before the first frame update
+
     void Start()
     {
         SB = new SceneBox(SdfShader);
