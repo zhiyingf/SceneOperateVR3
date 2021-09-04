@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Valve.VR;
 
 namespace SelectMenuUI
@@ -16,7 +17,11 @@ namespace SelectMenuUI
 
     public delegate void PointerEventHandler(object sender, PointerEventArgs e);
 
-    public delegate void ProcessDragHandler(object sender, PointerEventData e);
+    public delegate void ProcessDragDownHandler(object sender, Pointer3DEventData e);
+
+    public delegate void ProcessDragHandler(object sender, Pointer3DEventData e);
+
+    public delegate void ProcessDragUpHandler(object sender, Pointer3DEventData e);
 
     public class LaserPointer : MonoBehaviour
     {
@@ -26,11 +31,25 @@ namespace SelectMenuUI
         //public GameObject holder;
         public GameObject pointer;
         public GameObject reticle;
+        public Canvas cans;
+        GraphicRaycaster raycaster;
+
+
 
         public event PointerEventHandler PointerClick;
-        public event ProcessDragHandler ProcessDrag;
+
+        public event ProcessDragHandler PointerDragDown;
+        public event ProcessDragHandler PointerDrag;
+        public event ProcessDragHandler PointerDragUp;
+
+        Pointer3DEventData pointerData = new Pointer3DEventData(EventSystem.current);
 
         private const float distMost = 100f;
+
+        private void Start()
+        {
+            raycaster = cans.GetComponent<GraphicRaycaster>();
+        }
 
         public static Vector2 ScreenCenterPoint { get { return new Vector2(Screen.width * 0.5f, Screen.height * 0.5f); } }
 
@@ -40,11 +59,27 @@ namespace SelectMenuUI
                 PointerClick(this, e);
         }
 
-        public virtual void OnProcessDrag(PointerEventData e)
+        public virtual void OnProcessDragDown(Pointer3DEventData e)
         {
-            if (ProcessDrag != null)
+            if (PointerDragDown != null)
             {
-                ProcessDrag(this, e);
+                PointerDragDown(this, e);
+            }
+        }
+
+        public virtual void OnProcessDrag(Pointer3DEventData e)
+        {
+            if (PointerDrag != null)
+            {
+                PointerDrag(this, e);
+            }
+        }
+
+        public virtual void OnProcessDragUp(Pointer3DEventData e)
+        {
+            if (PointerDragUp != null)
+            {
+                PointerDragUp(this, e);
             }
         }
 
@@ -105,19 +140,44 @@ namespace SelectMenuUI
                 OnPointerClick(argsClick);
             }
 
-            if(tag == "scrollbar" && interactWithUI.GetState(pose.inputSource))
+            if(tag == "scrollbar")
             {
-                PointerEventData pointerData = new PointerEventData(EventSystem.current);
-                pointerData.pointerDrag = gameObject;
-                pointerData.button = PointerEventData.InputButton.Left;
-                Debug.Log(gameObject);
-                pointerData.dragging = true;
-                pointerData.position = ScreenCenterPoint;
-                pointerData.pressPosition = reticle.transform.position;
+                //Pointer3DEventData pointerData = new Pointer3DEventData(EventSystem.current);
+                //pointerData.enterEventCamera = Camera.main;
+                pointerData.delta = Vector2.zero;//
+                pointerData.button = PointerEventData.InputButton.Left;//
+                pointerData.position = Camera.main.WorldToScreenPoint(hit.point);//ScreenCenterPoint;//
+
                 
 
 
-                OnProcessDrag(pointerData);
+                pointerData.pointerCurrentRaycast = new RaycastResult
+                {
+                    gameObject = gameObject,
+                    module = raycaster,
+                    distance = hit.distance,
+                    worldPosition = hit.point,//raycast.GetPoint(hit.distance),
+                    worldNormal = -gameObject.transform.forward,
+                    screenPosition = pointerData.position//,ScreenCenterPoint
+                    //index = raycastResults.Count,
+                    //depth = graphic.depth,
+                    //sortingLayer = canvas.sortingLayerID,
+                    //sortingOrder = canvas.sortingOrder
+                };
+
+
+                if (interactWithUI.GetStateDown(pose.inputSource))
+                {
+                    OnProcessDragDown(pointerData);
+                }
+                else if (interactWithUI.GetState(pose.inputSource))
+                {
+                    OnProcessDrag(pointerData);
+                }
+                else if (interactWithUI.GetStateUp(pose.inputSource))
+                {
+                    OnProcessDragUp(pointerData);
+                }
             }
             
         }
