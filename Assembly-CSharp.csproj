@@ -99,12 +99,14 @@
     <None Include="Assets\SDF\100\604_1-100.txt" />
     <None Include="Assets\SDF\100\313-100.txt" />
     <None Include="Assets\SDF\50\26_2-50.txt" />
+    <None Include="Assets\SDF\100\4_3_4-100.txt" />
     <None Include="Assets\SDF\100\555_1-100.txt" />
     <None Include="Assets\SDF\100\574_3_4-100.txt" />
     <None Include="Assets\SDF\100\562_1-100.txt" />
     <None Include="Assets\SDF\100\568_2-100.txt" />
     <None Include="Assets\SDF\100\448_1-100.txt" />
     <None Include="Assets\SDF\50\88_3-50.txt" />
+    <None Include="Assets\SDF\100\26_2-100.txt" />
     <None Include="Assets\SDF\1001\4-100.txt" />
     <None Include="Assets\SDF\50\85-50.txt" />
     <None Include="Assets\SDF\50\88_2-50.txt" />
@@ -115,6 +117,7 @@
     <None Include="Assets\SDF\100\273_3_1-100.txt" />
     <None Include="Assets\SDF\100\532_1-100.txt" />
     <None Include="Assets\SDF\50\bunny-50.txt" />
+    <None Include="Assets\SDF\100\84_3-100.txt" />
     <None Include="Assets\SDF\100\510_3_3-100.txt" />
     <None Include="Assets\SDF\100\273_3_2-100.txt" />
     <None Include="Assets\SDF\100\612_2-100.txt" />
@@ -132,6 +135,7 @@
     <None Include="Assets\Scripts\Compute\MarchingCubes.compute" />
     <None Include="Assets\SDF\50\26-50.txt" />
     <None Include="Assets\SDF\100\273_3_3-100.txt" />
+    <None Include="Assets\SDF\100\85_3-100.txt" />
     <None Include="Assets\SDF\100\448_3_4-100.txt" />
     <None Include="Assets\SDF\100\313_3-100.txt" />
     <None Include="Assets\SDF\100\555_2-100.txt" />
@@ -145,6 +149,7 @@
     <None Include="Assets\SDF\100\315_3_2-100.txt" />
     <None Include="Assets\Materials\DffusePixelLevel.shader" />
     <None Include="Assets\SDF\50\4_3_4-50.txt" />
+    <None Include="Assets\SDF\100\85_2-100.txt" />
     <None Include="Assets\SDF\50\0-50.txt" />
     <None Include="Assets\Materials\DiffuseVertexLevel.shader" />
     <None Include="Assets\SDF\100\621-100.txt" />
@@ -166,6 +171,7 @@
     <None Include="Assets\SDF\100\313_1-100.txt" />
     <None Include="Assets\SDF\100\315_1-100.txt" />
     <None Include="Assets\SDF\100\564-100.txt" />
+    <None Include="Assets\SDF\100\26_3-100.txt" />
     <None Include="Assets\SDF\100\273_2-100.txt" />
     <None Include="Assets\SDF\100\612_3_4-100.txt" />
     <None Include="Assets\SDF\50\0094-50.txt" />
@@ -199,7 +205,9 @@
     <None Include="Assets\SDF\50\0_3-50.txt" />
     <None Include="Assets\SDF\1001\4_2-100.txt" />
     <None Include="Assets\SDF\100\574_3_1-100.txt" />
+    <None Include="Assets\SDF\100\88_2-100.txt" />
     <None Include="Assets\SDF\100\532_3-100.txt" />
+    <None Include="Assets\SDF\100\84_2-100.txt" />
     <None Include="Assets\SDF\1001\84_2-100.txt" />
     <None Include="Assets\SDF\100\510_1-100.txt" />
     <None Include="Assets\SDF\100\408_3-100.txt" />
@@ -209,6 +217,7 @@
     <None Include="Assets\SDF\100\612-100.txt" />
     <None Include="Assets\SDF\100\408_1-100.txt" />
     <None Include="Assets\SDF\1001\88_3-100.txt" />
+    <None Include="Assets\SDF\100\4_1-100.txt" />
     <None Include="Assets\SDF\1001\26-100.txt" />
     <None Include="Assets\SDF\100\593-100.txt" />
     <None Include="Assets\SDF\100\448_3_2-100.txt" />
@@ -216,14 +225,17 @@
     <None Include="Assets\SDF\1001\88_1-100.txt" />
     <None Include="Assets\SDF\100\bunny-100.txt" />
     <None Include="Assets\SDF\100\558_2-100.txt" />
+    <None Include="Assets\SDF\100\88_1-100.txt" />
     <None Include="Assets\SDF\100\532_2-100.txt" />
     <None Include="Assets\SDF\100\604-100.txt" />
     <None Include="Assets\SDF\100\598_1-100.txt" />
+    <None Include="Assets\SDF\100\88_3-100.txt" />
     <None Include="Assets\SDF\100\621_3_2-100.txt" />
     <None Include="Assets\SDF\100\597_3-100.txt" />
     <None Include="Assets\SDF\100\510_2-100.txt" />
     <None Include="Assets\SDF\100\612_3_1-100.txt" />
     <None Include="Assets\SDF\100\549_3_2-100.txt" />
+    <None Include="Assets\SDF\100\0_3-100.txt" />
     <None Include="Assets\SDF\50\26_3-50.txt" />
     <None Include="Assets\SDF\1001\4_3_4-100.txt" />
     <None Include="Assets\SDF\100\555-100.txt" />
@@ -235,6 +247,7 @@
     <None Include="Assets\SDF\100\510_3_2-100.txt" />
     <None Include="Assets\SDF\50\4_1-50.txt" />
     <None Include="Assets\SDF\1001\85_2-100.txt" />
+    <None Include="Assets\SDF\100\4_2-100.txt" />
     <None Include="Assets\SDF\100\448_3_1-100.txt" />
     <None Include="Assets\SDF\100\549-100.txt" />
     <None Include="Assets\SDF\50\85_3-50.txt" />
@@ -242,10 +255,13 @@
     <None Include="Assets\SDF\100\570_3-100.txt" />
     <None Include="Assets\SDF\100\562-100.txt" />
     <None Include="Assets\SDF\100\497-100.txt" />
+    <None Include="Assets\SDF\100\0_2-100.txt" />
     <None Include="Assets\SDF\100\562_3-100.txt" />
     <None Include="Assets\SDF\100\549_3_1-100.txt" />
     <None Include="Assets\SDF\100\621_3_1-100.txt" />
+    <None Include="Assets\SDF\100\4_3_1-100.txt" />
     <None Include="Assets\SDF\1001\85-100.txt" />
+    <None Include="Assets\SDF\100\26_1-100.txt" />
     <None Include="Assets\source\Picture\readme.txt" />
     <None Include="Assets\SDF\100\273_3_4-100.txt" />
     <None Include="Assets\SDF\100\510_3_4-100.txt" />
@@ -268,6 +284,7 @@
     <None Include="Assets\SDF\50\0096-50.txt" />
     <None Include="Assets\SDF\100\604_3-100.txt" />
     <None Include="Assets\SDF\100\315_2-100.txt" />
+    <None Include="Assets\models\readme.txt" />
     <None Include="Assets\SDF\100\cube-100.txt" />
     <None Include="Assets\SDF\100\570_2-100.txt" />
     <None Include="Assets\SDF\50\0001-50.txt" />
@@ -278,6 +295,7 @@
     <None Include="Assets\SDF\100\625_1-100.txt" />
     <None Include="Assets\SDF\50\0002-50.txt" />
     <None Include="Assets\SDF\100\625_3-100.txt" />
+    <None Include="Assets\SDF\100\4_3_2-100.txt" />
     <None Include="Assets\SDF\100\574-100.txt" />
     <None Include="Assets\SDF\100\561-100.txt" />
     <None Include="Assets\SDF\100\604_2-100.txt" />
@@ -286,6 +304,7 @@
     <None Include="Assets\SDF\50\85_2-50.txt" />
     <None Include="Assets\SDF\100\570-100.txt" />
     <None Include="Assets\SDF\100\565_3-100.txt" />
+    <None Include="Assets\SDF\100\4_3_3-100.txt" />
     <None Include="Assets\SDF\100\595_2-100.txt" />
     <None Include="Assets\SDF\50\88_1-50.txt" />
     <None Include="Assets\SDF\1001\0-100.txt" />
