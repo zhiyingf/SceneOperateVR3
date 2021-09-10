@@ -11,7 +11,8 @@ namespace SelectMenuUI
     {
         public SteamVR_Input_Sources fromInputSource;
         public uint flags;
-        public float distance;
+        //public float distance;
+        public RaycastHit hit;
         public Transform target;
     }
 
@@ -134,7 +135,8 @@ namespace SelectMenuUI
             {
                 PointerEventArgs argsClick = new PointerEventArgs();
                 argsClick.fromInputSource = pose.inputSource;
-                argsClick.distance = hit.distance;
+                //argsClick.distance = hit.distance;
+                argsClick.hit = hit;
                 argsClick.flags = 0;
                 argsClick.target = hit.transform;
                 OnPointerClick(argsClick);

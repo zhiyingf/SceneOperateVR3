@@ -22,7 +22,10 @@ public class GetModelHandler : MonoBehaviour
     public void PointerClick(object sender, PointerEventArgs e)
     {
         GameObject model = candidateModels.Find(e.target.name).Find(e.target.name).gameObject;
-        Instantiate(model, transform.position, transform.rotation, parentModel);
+        Instantiate(model, e.hit.transform.forward / 10 + transform.position, transform.rotation, parentModel);
+        //Instantiate(model, transform.position, transform.rotation, parentModel);
+
+
         //Rigidbody newModelRig = newModel.AddComponent<Rigidbody>();
         //newModelRig.useGravity = false;
         //MeshCollider newModelCol = newModel.AddComponent<MeshCollider>();
