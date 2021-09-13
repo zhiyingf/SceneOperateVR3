@@ -50,17 +50,6 @@ namespace positionSet
         public Transform objectTracker;
         public Vector3 posOffset;
         public Vector3 rotOffset;
-        // Start is called before the first frame update
-        void Start()
-        {
-            //OnNewPoses();
-        }
-
-        private void Awake()
-        {
-            //Debug.Log("awake");
-            //OnNewPoses();
-        }
 
         public void OnNewPoses()
         {
@@ -70,7 +59,7 @@ namespace positionSet
             PoseInfo poseOrigin = new PoseInfo(objectTracker);
             poseOrigin = poseOrigin * new PoseInfo(basePos, Quaternion.Euler(rotOffset));
 
-            poseOrigin.pos.y = 0f;
+            poseOrigin.pos.y = 0.5f;
 
             //PoseFreezer
             var freezeEuler = transform.localEulerAngles;
@@ -84,11 +73,6 @@ namespace positionSet
 
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            
-        }
     }
 
 

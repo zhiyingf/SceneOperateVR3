@@ -158,20 +158,6 @@ public class SceneSDFArea : MonoBehaviour
             }
             return true;
         }
-
-
-        //if (size >= 2)
-        //{
-        //    SB.UpdateSDF(operations[0].mesh, operations[1].mesh, operations[1].type);
-        //    for (int i = 2; i < size; i++)
-        //    {
-        //        SB.UpdateSDFLater(operations[i].mesh, operations[i].type);
-        //    }
-        //    return true;
-        //}
-        //return false;
-
-
     }
 
     public void UpdateMesh()
@@ -345,7 +331,6 @@ public class SceneSDFArea : MonoBehaviour
         }
     }
 
-
     public void ReleaseObject(bool rightOrLeft)
     {
         if (rightOrLeft)
@@ -374,4 +359,40 @@ public class SceneSDFArea : MonoBehaviour
         }
         isInHanding = false;
     }
+
+
+    //zoomModelAction
+    public bool SameObjectInhand()
+    {
+        return objectInhandLeft == objectInhandRight;
+    }
+
+    public Vector3 SizeObjectInhand()
+    {
+        if (objectInhandLeft != null && objectInhandLeft == objectInhandRight)
+        {
+            return objectInhandLeft.GetComponent<Transform>().localScale;
+        }
+        else
+        {
+            Debug.Log("Size objectInhandLeft is null or !=");
+            return Vector3.zero;
+        }
+    }
+
+    public bool ZoomObjectInhand(Vector3 size)
+    {
+        if (objectInhandLeft != null && objectInhandLeft == objectInhandRight)
+        {
+            objectInhandLeft.GetComponent<Transform>().localScale = size;
+            return true;
+        }
+        else
+        {
+            Debug.Log("Zoom objectInhandLeft is null or !=");
+            return false;
+        }
+    }
+
+
 }

@@ -72,7 +72,8 @@
     },
     {
       "name": "/actions/sceneoperate/in/Editor",
-      "type": "boolean"
+      "type": "boolean",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/sceneoperate/in/SelectMenu",
@@ -81,11 +82,13 @@
     },
     {
       "name": "/actions/sceneoperate/in/SaveMesh",
-      "type": "boolean"
+      "type": "boolean",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/sceneoperate/in/Intersection",
-      "type": "boolean"
+      "type": "boolean",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/sceneoperate/in/Subtract",
@@ -99,6 +102,16 @@
     {
       "name": "/actions/sceneoperate/in/InteractUI",
       "type": "boolean"
+    },
+    {
+      "name": "/actions/sceneoperate/in/TouchPos",
+      "type": "vector2",
+      "requirement": "mandatory"
+    },
+    {
+      "name": "/actions/sceneoperate/in/Touch",
+      "type": "boolean",
+      "requirement": "mandatory"
     },
     {
       "name": "/actions/sceneoperate/out/Haptic",

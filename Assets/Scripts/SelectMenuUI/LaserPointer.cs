@@ -140,9 +140,7 @@ namespace SelectMenuUI
                 argsClick.flags = 0;
                 argsClick.target = hit.transform;
                 OnPointerClick(argsClick);
-            }
-
-            if(tag == "scrollbar")
+            }else if(tag == "scrollbar")
             {
                 //Pointer3DEventData pointerData = new Pointer3DEventData(EventSystem.current);
                 //pointerData.enterEventCamera = Camera.main;

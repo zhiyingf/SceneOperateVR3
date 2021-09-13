@@ -22,7 +22,7 @@ public class GetModelHandler : MonoBehaviour
     public void PointerClick(object sender, PointerEventArgs e)
     {
         GameObject model = candidateModels.Find(e.target.name).Find(e.target.name).gameObject;
-        Instantiate(model, e.hit.transform.forward / 8 + transform.position, transform.rotation, parentModel);
+        Instantiate(model, e.hit.transform.forward / 8 + transform.position, Quaternion.identity , parentModel);
         //Instantiate(model, transform.position, transform.rotation, parentModel);
 
 

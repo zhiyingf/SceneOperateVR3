@@ -54,7 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\ActionControl\SetCollider.cs" />
-    <Compile Include="Assets\Scripts\ActionControl\ActionsTest.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\SetScriptableObj.cs" />
     <Compile Include="Assets\Scripts\SelectMenuUI\LaserPointer.cs" />
     <Compile Include="Assets\Scripts\HyperparaSet.cs" />
@@ -63,13 +62,12 @@
     <Compile Include="Assets\Scripts\SceneSDFEditor.cs" />
     <Compile Include="Assets\Scripts\Compute\UseSdfShader.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\Marching.cs" />
-    <Compile Include="Assets\Scripts\ActionControl\ControllerGrabObject.cs" />
     <Compile Include="Assets\Scripts\SelectMenuUI\PositionSet.cs" />
     <Compile Include="Assets\Scripts\ActionControl\UpdateMeshController.cs" />
     <Compile Include="Assets\Scripts\BooleanType.cs" />
     <Compile Include="Assets\Scripts\SelectMenuUI\Pointer3DEventData.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\UseMC.cs" />
-    <Compile Include="Assets\Scripts\SaveMesh\SaveMeshController.cs" />
+    <Compile Include="Assets\Scripts\ActionControl\SaveMeshController.cs" />
     <Compile Include="Assets\Scripts\ActionControl\GrabAddDelect.cs" />
     <Compile Include="Assets\Scripts\SaveMesh\ExportMesh.cs" />
     <Compile Include="Assets\Scripts\Compute\UseSdfBufShader.cs" />
@@ -78,15 +76,19 @@
     <Compile Include="Assets\Scripts\ActionControl\SelectMenuUIController.cs" />
     <Compile Include="Assets\Scripts\Compute\UseSdfTexShader.cs" />
     <Compile Include="Assets\Scripts\ObjSdfTable.cs" />
+    <Compile Include="Assets\Scripts\ActionControl\ZoomModelController.cs" />
     <Compile Include="Assets\Scripts\SceneSDFAreaEditor.cs" />
     <Compile Include="Assets\Scripts\SceneBox.cs" />
-    <Compile Include="Assets\Scripts\InputController.cs" />
+    <Compile Include="Assets\Scripts\ActionControl\InputController.cs" />
     <Compile Include="Assets\Scripts\SceneSDFArea.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\ManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\AttachScriptableEditor.cs" />
     <Compile Include="Assets\Scripts\SceneSDF.cs" />
     <Compile Include="Assets\Scripts\DataPreprocess\AttachScriptable.cs" />
     <Compile Include="Assets\Scripts\MarchingCube\MarchingCubes.cs" />
+    <Compile Include="Assets\Scripts\ZoomModelTips\ZoomTips.cs" />
+    <Compile Include="Assets\Scripts\ZoomModelTips\RadialMenu.cs" />
+    <Compile Include="Assets\Scripts\ZoomModelTips\RadialSection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SDF\100\cylinder-100.txt" />
@@ -212,6 +214,7 @@
     <None Include="Assets\SDF\100\510_1-100.txt" />
     <None Include="Assets\SDF\100\408_3-100.txt" />
     <None Include="Assets\SDF\100\593_1-100.txt" />
+    <None Include="Assets\shaders\SSS.shader" />
     <None Include="Assets\SDF\100\597_1-100.txt" />
     <None Include="Assets\SDF\100\448-100.txt" />
     <None Include="Assets\SDF\100\612-100.txt" />
@@ -262,7 +265,7 @@
     <None Include="Assets\SDF\100\4_3_1-100.txt" />
     <None Include="Assets\SDF\1001\85-100.txt" />
     <None Include="Assets\SDF\100\26_1-100.txt" />
-    <None Include="Assets\source\Picture\readme.txt" />
+    <None Include="Assets\Sources\Picture\readme.txt" />
     <None Include="Assets\SDF\100\273_3_4-100.txt" />
     <None Include="Assets\SDF\100\510_3_4-100.txt" />
     <None Include="Assets\SDF\100\612_3_2-100.txt" />

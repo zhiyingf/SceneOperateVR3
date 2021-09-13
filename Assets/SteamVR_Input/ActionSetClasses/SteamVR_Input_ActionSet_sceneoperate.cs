@@ -105,6 +105,22 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Vector2 TouchPos
+        {
+            get
+            {
+                return SteamVR_Actions.sceneoperate_TouchPos;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean Touch
+        {
+            get
+            {
+                return SteamVR_Actions.sceneoperate_Touch;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get
