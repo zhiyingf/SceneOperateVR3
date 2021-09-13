@@ -6,8 +6,8 @@ public class ZoomModelController : MonoBehaviour
 {
     public SceneSDFArea scenesdfArea;
     public RadialMenu radialMenu;
-    public float MaxScale = 5f;
-    public float MinScale = 0.5f;
+    public float MaxScale = 10f;
+    public float MinScale = 0.1f;
 
     private float startHandsDistance;
     private Vector3 startScale;
@@ -37,35 +37,7 @@ public class ZoomModelController : MonoBehaviour
         zoomSize = Vector3.zero;
         if (index == 0)
         {
-            newScale = startScale.y * rateDis;
-            if (newScale <= MinScale)
-            {
-                newScale = MinScale;
-                return false;
-            }
-            if (newScale >= MaxScale)
-            {
-                newScale = MaxScale;
-                return false;
-            }
-            zoomSize = new Vector3(startScale.x, newScale, startScale.z);
-
-        }else if (index == 1)
-        {
-            newScale = startScale.z * rateDis;
-            if (newScale <= MinScale)
-            {
-                newScale = MinScale;
-                return false;
-            }
-            if (newScale >= MaxScale)
-            {
-                newScale = MaxScale;
-                return false;
-            }
-            zoomSize = new Vector3(startScale.x, startScale.y, newScale);
-        }else if(index == 2)
-        {
+            //A
             Vector3 tmp = startScale * rateDis;
             newScale = Mathf.Max(tmp.x, tmp.y, tmp.z);
             if (newScale <= MinScale)
@@ -79,6 +51,56 @@ public class ZoomModelController : MonoBehaviour
                 return false;
             }
             zoomSize = new Vector3(tmp.x, tmp.y, tmp.z);
+
+            
+
+        }else if (index == 1)
+        {
+            //X
+            newScale = startScale.x * rateDis;
+            if (newScale <= MinScale)
+            {
+                newScale = MinScale;
+                return false;
+            }
+            if (newScale >= MaxScale)
+            {
+                newScale = MaxScale;
+                return false;
+            }
+            zoomSize = new Vector3(newScale, startScale.y, startScale.z);
+            
+        }else if(index == 2)
+        {
+            //Y
+            newScale = startScale.y * rateDis;
+            if (newScale <= MinScale)
+            {
+                newScale = MinScale;
+                return false;
+            }
+            if (newScale >= MaxScale)
+            {
+                newScale = MaxScale;
+                return false;
+            }
+            zoomSize = new Vector3(startScale.x, newScale, startScale.z);
+        }
+        else if(index == 3)
+        {
+            //Z
+            newScale = startScale.z * rateDis;
+            if (newScale <= MinScale)
+            {
+                newScale = MinScale;
+                return false;
+            }
+            if (newScale >= MaxScale)
+            {
+                newScale = MaxScale;
+                return false;
+            }
+            zoomSize = new Vector3(startScale.x, startScale.y, newScale);
         }
         return ZoomObjectInhand(zoomSize);
 

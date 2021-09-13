@@ -27,7 +27,7 @@ public class InputController : MonoBehaviour
     public SteamVR_Action_Boolean saveMeshAction;//
 
     //zoom
-    public SteamVR_Action_Boolean touchAction;
+    //public SteamVR_Action_Boolean touchAction;
     public SteamVR_Action_Vector2 touchPos;
 
     public SteamVR_Action_Pose pose;
@@ -164,69 +164,30 @@ public class InputController : MonoBehaviour
         {
             bool grableft = grabModelAction.GetLastStateUp(primarySource);
             bool grabright = grabModelAction.GetLastStateUp(secondarySource);
-            if (!grableft && !grabright)
+            if (!grableft && !grabright && zoomModelController.SameObjectInhand())
             {
-                if (zoomModelController.SameObjectInhand())
-                {
-                    Debug.Log("zoom update");
-                    if (touchAction.GetChanged(primarySource))
-                    {
-                        //zoomModelController.SetTouch();
-                    }
-                    zoomModelController.setTouchPosition(touchPos.GetAxis(primarySource));
+                Debug.Log("zoom update");
+                //if (touchAction.GetChanged(primarySource))
+                //{
+                //    //zoomModelController.SetTouch();
+                //}
+                zoomModelController.setTouchPosition(touchPos.GetAxis(primarySource));
 
-                    float handsDistance = Vector3.Distance(Pos(primarySource), Pos(secondarySource));
-                    bool success = zoomModelController.UpdateZoom(handsDistance, out Vector3 newScale);
-                    zoomTips.UpdateZoom(Pos(primarySource), Pos(secondarySource), success, newScale);
-                }//??????????
-                else
-                {//Unreasonable operation, clear them
-                    zoomTips.EndZoom();
+                float handsDistance = Vector3.Distance(Pos(primarySource), Pos(secondarySource));
+                bool success = zoomModelController.UpdateZoom(handsDistance, out Vector3 newScale);
+                zoomTips.UpdateZoom(Pos(primarySource), Pos(secondarySource), success, newScale);
 
-                    currentActionLeft = Action.Idle;
-                    grabAddDelectController.ReleaseObject(true);
-
-                    currentActionRight = Action.Idle;
-                    grabAddDelectController.ReleaseObject(false);
-                }
             }
             else
             {//zoom update only once in the frame
                 zoomTips.EndZoom();
 
-                //if (grableft && grabright)
-                //{
-                //    currentActionLeft = Action.Idle;
-                //    grabAddDelectController.ReleaseObject(true);
+                currentActionLeft = Action.Idle;
+                grabAddDelectController.ReleaseObject(true);
 
-                //    currentActionRight = Action.Idle;
-                //    grabAddDelectController.ReleaseObject(false);
-                //}
-                //else if(grableft && !grabright)
-                //{
-                //    currentActionLeft = Action.Idle;
-                //    grabAddDelectController.ReleaseObject(true);
+                currentActionRight = Action.Idle;
+                grabAddDelectController.ReleaseObject(false);
 
-                //    currentActionRight = Action.Grab;
-                //}
-                //else if(!grableft && grabright)
-                //{
-                //    currentActionRight = Action.Idle;
-                //    grabAddDelectController.ReleaseObject(false);
-
-                //    currentActionLeft = Action.Grab;
-                //}
-
-                if (grableft || grabright)
-                {
-                    zoomTips.EndZoom();
-
-                    currentActionLeft = Action.Idle;
-                    grabAddDelectController.ReleaseObject(true);
-
-                    currentActionRight = Action.Idle;
-                    grabAddDelectController.ReleaseObject(false);
-                }
             }
         }
 
@@ -320,35 +281,7 @@ public class InputController : MonoBehaviour
         {
             bool grableft = grabModelAction.GetLastStateUp(primarySource);
             bool grabright = grabModelAction.GetLastStateUp(secondarySource);
-            //if (grableft && grabright)
-            //{
-            //    zoomTips.EndZoom();
-
-            //    currentActionLeft = Action.Idle;
-            //    grabAddDelectController.ReleaseObject(true);
-
-            //    currentActionRight = Action.Idle;
-            //    grabAddDelectController.ReleaseObject(false);
-            //}
-            //else if (grableft && !grabright)
-            //{
-            //    zoomTips.EndZoom();
-
-            //    currentActionLeft = Action.Idle;
-            //    grabAddDelectController.ReleaseObject(true);
-
-            //    currentActionRight = Action.Grab;
-            //}
-            //else if (!grableft && grabright)
-            //{
-            //    zoomTips.EndZoom();
-
-            //    currentActionRight = Action.Idle;
-            //    grabAddDelectController.ReleaseObject(false);
-
-            //    currentActionLeft = Action.Grab;
-            //}
-
+            
             if (grableft || grabright)
             {
                 zoomTips.EndZoom();

@@ -113,14 +113,6 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Boolean Touch
-        {
-            get
-            {
-                return SteamVR_Actions.sceneoperate_Touch;
-            }
-        }
-        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

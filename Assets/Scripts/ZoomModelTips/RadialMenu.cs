@@ -17,7 +17,7 @@ public class RadialMenu : MonoBehaviour
     private Vector2 touchPosition = Vector2.zero;
     private List<RadialSection> radialSections = null;
     private RadialSection highlightedSection = null;
-    private int index = 2;
+    private int index = 0;
 
     private readonly float degreeIncrement = 90.0f;
 
@@ -25,6 +25,7 @@ public class RadialMenu : MonoBehaviour
     {
         CreatAndSetupSections();
     }
+
 
     private void CreatAndSetupSections()
     {
@@ -58,8 +59,9 @@ public class RadialMenu : MonoBehaviour
     private void Update()
     {
         Vector2 direction = Vector2.zero + touchPosition;
-        float rotation = GetDegree(direction);
+        if (direction == Vector2.zero) return;
 
+        float rotation = GetDegree(direction);
         SetCursorPosition();
 
         SetSelectionRotation(rotation);

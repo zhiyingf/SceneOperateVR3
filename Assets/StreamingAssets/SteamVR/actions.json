@@ -14,10 +14,6 @@
       "skeleton": "/skeleton/hand/left"
     },
     {
-      "name": "/actions/default/in/NewAction",
-      "type": "boolean"
-    },
-    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -106,11 +102,6 @@
     {
       "name": "/actions/sceneoperate/in/TouchPos",
       "type": "vector2",
-      "requirement": "mandatory"
-    },
-    {
-      "name": "/actions/sceneoperate/in/Touch",
-      "type": "boolean",
       "requirement": "mandatory"
     },
     {

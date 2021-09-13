@@ -364,7 +364,7 @@ public class SceneSDFArea : MonoBehaviour
     //zoomModelAction
     public bool SameObjectInhand()
     {
-        return objectInhandLeft == objectInhandRight;
+        return objectInhandLeft && (objectInhandLeft == objectInhandRight);
     }
 
     public Vector3 SizeObjectInhand()
@@ -376,7 +376,7 @@ public class SceneSDFArea : MonoBehaviour
         else
         {
             Debug.Log("Size objectInhandLeft is null or !=");
-            return Vector3.zero;
+            return Vector3.one;//???
         }
     }
 

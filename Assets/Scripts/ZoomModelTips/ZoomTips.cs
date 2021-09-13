@@ -9,28 +9,34 @@ public class ZoomTips : MonoBehaviour
     public Transform cameraTransform;
     public RadialMenu radialMenu;
     public LineRenderer lineRenderer;
-    public RectTransform rectTransform;
-    public Text label;
+    public Transform radialMenuPos;
+    //public RectTransform rectTransform;
+    //public Text label;
+
+    private RectTransform rectTransform;
+    private Text label;
 
 
-    private void Start()
+    void Start()
     {
+        rectTransform = GetComponentInChildren<RectTransform>();
+        label = GetComponentInChildren<Text>();
+
         lineRenderer.positionCount = N + 1;
         lineRenderer.enabled = false;
+
     }
 
     public void StartZoom()
     {
-        label.enabled = true;
         lineRenderer.enabled = true;
-        radialMenu.enabled = true;
     }
 
     public void EndZoom()
     {
         label.enabled = false;
         lineRenderer.enabled = false;
-        radialMenu.enabled = false;
+        radialMenu.Show(false);
     }
 
     public void UpdateZoom(Vector3 primaryHand, Vector3 secondaryHand, bool zoomSuccess, Vector3 newScale)
@@ -50,12 +56,13 @@ public class ZoomTips : MonoBehaviour
         // Text
         label.enabled = true;
         label.text = "size " + newScale.ToString("F1");
+        Debug.Log(label.text);
         rectTransform.anchoredPosition3D = Vector3.Lerp(primaryHand, secondaryHand, 0.5f);
         rectTransform.LookAt(cameraTransform.position);
 
-        Transform radialMenuTransform = radialMenu.GetComponent<Transform>();
-        radialMenuTransform.position = Vector3.Lerp(primaryHand, secondaryHand, 1f);
-        radialMenuTransform.LookAt(cameraTransform.position);
+        radialMenu.Show(true);
+        radialMenuPos.position = rectTransform.anchoredPosition3D;
+        radialMenuPos.rotation = rectTransform.rotation;
 
         // Color
         if (!zoomSuccess)
