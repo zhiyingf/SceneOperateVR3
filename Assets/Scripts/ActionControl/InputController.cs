@@ -111,7 +111,6 @@ public class InputController : MonoBehaviour
                 if (grabAddDelectController.AddOperation(BooleanType.Union, false))
                 {
                     hapticAction.Execute(0f, 0.1f, 25, 5, primarySource);
-                    Debug.Log("right unionAddAction!");
                 }
             }
             else if (intersectionAddAction.GetStateDown(primarySource))
@@ -119,7 +118,6 @@ public class InputController : MonoBehaviour
                 if (grabAddDelectController.AddOperation(BooleanType.Intersection, false))
                 {
                     hapticAction.Execute(0f, 0.1f, 25, 5, primarySource);
-                    Debug.Log("right intersectionAddAction!");
                 }
             }
             else if (subtractAddAction.GetStateDown(primarySource))
@@ -141,7 +139,6 @@ public class InputController : MonoBehaviour
             else if (updateAction.GetStateDown(primarySource))
             {
                 updateMeshController.UpdateSDFMeshOnce();
-                Debug.Log("right updateAction!");
             }
             else if (selectMenuAction.GetStateDown(primarySource))
             {
@@ -167,10 +164,6 @@ public class InputController : MonoBehaviour
             if (!grableft && !grabright && zoomModelController.SameObjectInhand())
             {
                 Debug.Log("zoom update");
-                //if (touchAction.GetChanged(primarySource))
-                //{
-                //    //zoomModelController.SetTouch();
-                //}
                 zoomModelController.setTouchPosition(touchPos.GetAxis(primarySource));
 
                 float handsDistance = Vector3.Distance(Pos(primarySource), Pos(secondarySource));
@@ -180,6 +173,7 @@ public class InputController : MonoBehaviour
             }
             else
             {//zoom update only once in the frame
+                Debug.Log("zoom end");
                 zoomTips.EndZoom();
 
                 currentActionLeft = Action.Idle;
@@ -225,7 +219,6 @@ public class InputController : MonoBehaviour
                 if (grabAddDelectController.AddOperation(BooleanType.Union, true))
                 {
                     hapticAction.Execute(0f, 0.1f, 25, 5, secondarySource);
-                    Debug.Log("left unionAddAction!");
                 }
             }
             else if (intersectionAddAction.GetStateDown(secondarySource))
@@ -233,7 +226,6 @@ public class InputController : MonoBehaviour
                 if (grabAddDelectController.AddOperation(BooleanType.Intersection, true))
                 {
                     hapticAction.Execute(0f, 0.1f, 25, 5, secondarySource);
-                    Debug.Log("left intersectionAddAction!");
                 }
             }
             else if (subtractAddAction.GetStateDown(secondarySource))
@@ -241,7 +233,6 @@ public class InputController : MonoBehaviour
                 if (grabAddDelectController.AddOperation(BooleanType.Subtract, true))
                 {
                     hapticAction.Execute(0f, 0.1f, 25, 5, secondarySource);
-                    Debug.Log("left subtractAddAction!");
                 }
             }
             else if (delectAction.GetStateDown(secondarySource))
@@ -249,7 +240,6 @@ public class InputController : MonoBehaviour
                 if (grabAddDelectController.DelectOperation(true))
                 {
                     hapticAction.Execute(0f, 0.1f, 25, 5, secondarySource);
-                    Debug.Log("left delectAction!");
                 }
             }
             //else if (editorAction.GetStateDown(secondarySource))
@@ -260,12 +250,10 @@ public class InputController : MonoBehaviour
             else if (updateAction.GetStateDown(secondarySource))
             {
                 updateMeshController.UpdateSDFMeshOnce();
-                Debug.Log("left updateAction!");
             }
             else if (saveMeshAction.GetStateDown(secondarySource))
             {
                 saveMeshController.ExportToOBJ();
-                Debug.Log("saveMeshAction!");
             }
         }
         else if (currentActionLeft.Equals(Action.Grab))

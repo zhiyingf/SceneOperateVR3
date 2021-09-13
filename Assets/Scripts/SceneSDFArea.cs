@@ -306,6 +306,7 @@ public class SceneSDFArea : MonoBehaviour
                 //1 Move the colling GameObject into the player's hand and remove it from the collingObject variable.
                 objectInhandLeft = colliderLeft;
                 colliderLeft = null;
+
                 //2 Add a new joint that connects the controller to the object using the AddFixedJoint() method above.
                 var joint = setColliderLeft.AddFixedJoint();
                 joint.connectedBody = objectInhandLeft.GetComponent<Rigidbody>();
