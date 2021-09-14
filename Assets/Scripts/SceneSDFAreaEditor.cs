@@ -41,6 +41,10 @@ public class SceneSDFAreaEditor : Editor
         scenesdfArea.setColliderRight = (SetCollider)EditorGUILayout.ObjectField("SetColliderRight", scenesdfArea.setColliderRight, typeof(SetCollider), true);
         GUILayout.Space(8.0f);
 
+        scenesdfArea.offset = EditorGUILayout.Vector3Field("Offset", scenesdfArea.offset);
+
+        GUILayout.Space(8.0f);
+
         if (GUILayout.Button("Update Mesh"))
         {
             scenesdfArea.ExecuteOnClick();

@@ -6,8 +6,8 @@ public class ZoomModelController : MonoBehaviour
 {
     public SceneSDFArea scenesdfArea;
     public RadialMenu radialMenu;
-    public float MaxScale = 4f;
-    public float MinScale = 0.4f;
+    public float MaxScale = 5f;
+    public float MinScale = 0.5f;
 
     private float startHandsDistance;
     private Vector3 startScale;

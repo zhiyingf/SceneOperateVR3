@@ -171,7 +171,8 @@ public class SceneSDF : MonoBehaviour
         System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
         stopwatch.Start();
 
-        SB.UpdateSDF(operationA, operationB, operationType);
+        Vector3 originOld = Vector3.zero;
+        SB.UpdateSDF(operationA, operationB, operationType, true, ref originOld);
 
         //MC 局部更新
         //UseMC mc = new UseMC(SB);
@@ -185,13 +186,12 @@ public class SceneSDF : MonoBehaviour
 
         if (McShader)
         {
-            //string srcName = "Assets/source/res/resSDF.asset";
-            //AssetDatabase.CreateAsset(SB.TexMatrix, srcName);
-
             UseMcShader mc = new UseMcShader(SB, McShader);
             mc.ComputeMC();
             GetComponent<MeshFilter>().mesh = mc.mesh;
             GetComponent<Renderer>().sharedMaterials = mats.ToArray();
+
+            gameObject.transform.position = originOld;
         }
         else
         {

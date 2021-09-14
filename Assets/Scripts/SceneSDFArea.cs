@@ -34,6 +34,10 @@ public class SceneSDFArea : MonoBehaviour
     public MeshFilter objectInhandLeft;
     public MeshFilter objectInhandRight;
 
+    public Vector3 offset;
+
+    Vector3 originOld = Vector3.zero;
+
     //public struct OpAndType
     //{
     //    public MeshFilter mesh;
@@ -149,11 +153,11 @@ public class SceneSDFArea : MonoBehaviour
                 }
                 else if (i == 2)
                 {
-                    SB.UpdateSDF(mesh0, kvp.Key, kvp.Value);
+                    SB.UpdateSDF(mesh0, kvp.Key, kvp.Value,true,ref originOld);
                 }
                 else
                 {
-                    SB.UpdateSDFLater(kvp.Key, kvp.Value);
+                    SB.UpdateSDFLater(kvp.Key, kvp.Value,true, ref originOld);
                 }
             }
             return true;
@@ -168,6 +172,9 @@ public class SceneSDFArea : MonoBehaviour
             mc.ComputeMC();
             GetComponent<MeshFilter>().mesh = mc.mesh;
             GetComponent<MeshCollider>().sharedMesh = mc.mesh;
+
+            originOld += offset;
+            gameObject.transform.position = originOld;
         }
         else
         {
@@ -385,7 +392,9 @@ public class SceneSDFArea : MonoBehaviour
     {
         if (objectInhandLeft != null && objectInhandLeft == objectInhandRight)
         {
-            objectInhandLeft.GetComponent<Transform>().localScale = size;
+            //objectInhandLeft.GetComponent<Transform>().localScale = size;
+
+            objectInhandLeft.gameObject.transform.localScale = size;
             return true;
         }
         else

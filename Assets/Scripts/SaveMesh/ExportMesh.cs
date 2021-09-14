@@ -26,6 +26,7 @@ public sealed class ExportMesh
         StringBuilder buf = new StringBuilder();
         foreach (MeshFilter mf in meshFilters)
         {
+            mf.name = gObj.name;
             offsetVertice += parseMeshFilter(buf, mf, offsetVertice);
         }
 
@@ -59,14 +60,16 @@ public sealed class ExportMesh
         foreach (Vector3 vertice in allVertices)
         {
             Vector3 v = meshTrans.TransformPoint(vertice);
-            buf.AppendFormat("v {0} {1} {2} \n", v.x, v.y, -v.z);
+            //buf.AppendFormat("v {0} {1} {2} \n", v.x, v.y, -v.z);
+            buf.AppendFormat("v {0} {1} {2} \n", v.x, v.y, v.z);
         }
 
 
         foreach (Vector3 normal in mesh.normals)
         {
             Vector3 vn = meshTrans.TransformDirection(normal);
-            buf.AppendFormat("vn {0} {1} {2} \n", -vn.x, -vn.y, vn.z);
+            //buf.AppendFormat("vn {0} {1} {2} \n", -vn.x, -vn.y, vn.z);
+            buf.AppendFormat("vn {0} {1} {2} \n", vn.x, vn.y, vn.z);
         }
 
         //foreach (Vector2 uv in mesh.uv)

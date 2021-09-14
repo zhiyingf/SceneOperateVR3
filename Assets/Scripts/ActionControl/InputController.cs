@@ -281,14 +281,7 @@ public class InputController : MonoBehaviour
                 grabAddDelectController.ReleaseObject(false);
             }
         }
-
-
-
-
         InputControllerMarker.End();
-
-       
-
 
     }
 

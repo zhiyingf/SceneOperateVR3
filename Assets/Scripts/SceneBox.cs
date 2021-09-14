@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class SceneBox
@@ -25,13 +26,40 @@ public class SceneBox
         SdfShader = sdfShader;
     }
 
-    public void SetScriptable(out ManagerScriptableObject scriptableSDF)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="scriptableSDF"></param>
+    /// <param name="save"></param>
+    /// <param name="name">save texture3d and scriptable</param>
+    public void SetScriptable(out ManagerScriptableObject scriptableSDF, bool save, string name)
     {
         scriptableSDF = ScriptableObject.CreateInstance<ManagerScriptableObject>();
         scriptableSDF.SetValue(ncells + Vector3Int.one, localBox, TexMatrix);
+
+        if (save)
+        {
+            string texName = "Assets/SceneResult/Texture3D/" + name + ".asset";
+            string srcName = "Assets/SceneResult/ScriptableObj/" + name + ".asset";
+            if (TexMatrix != null)
+            {
+                AssetDatabase.CreateAsset(TexMatrix, texName);
+            }
+            if (scriptableSDF != null)
+            {
+                AssetDatabase.CreateAsset(scriptableSDF, srcName);
+            }
+        }
     }
 
-    public void UpdateSDF(MeshFilter objA, MeshFilter objB,BooleanType type)
+    /// <summary>
+    /// Update the first two models
+    /// </summary>
+    /// <param name="objA"></param>
+    /// <param name="objB"></param>
+    /// <param name="type"></param>
+    /// <param name="moveToOrigin">Whether to move the new model back to the origin</param>
+    public void UpdateSDF(MeshFilter objA, MeshFilter objB,BooleanType type,bool moveToOrigin, ref Vector3 origin)
     {
         Bounds boundsA = objA.GetComponent<Renderer>().bounds;
         Bounds boundsB = objB.GetComponent<Renderer>().bounds;
@@ -49,20 +77,24 @@ public class SceneBox
 
         ncells = new Vector3Int((int)boxSizef.x, (int)boxSizef.y, (int)boxSizef.z);
 
-        //boxA
-        //boxMatrix = new float[ncells.x + 1, ncells.y + 1, ncells.z + 1];
-
         /////use computeshader
-        ///
         texShader = new UseSdfTexShader(objA.transform, objB.transform, ncells, localBox.min, SdfShader);
-        //texShader.ComputeSDF(sdfShader, type, ref boxMatrix);
         texShader.ComputeSDF(type, ref TexMatrix);
 
-        //UseSdfBufShader bufShader = new UseSdfBufShader(objA.transform, objB.transform, ncells, localBoxMin);
-        //bufShader.ComputeSDF(sdfShader, type, ref boxMatrix);
+        if (moveToOrigin)
+        {
+            origin = localBox.center;
+            localBox.center = Vector3.zero;
+        }
     }
 
-    public void UpdateSDFLater(MeshFilter objB, BooleanType type)
+    /// <summary>
+    /// Update objects with more than two models
+    /// </summary>
+    /// <param name="objB"></param>
+    /// <param name="type"></param>
+    /// <param name="moveToOrigin">Whether to move the new model back to the origin</param>
+    public void UpdateSDFLater(MeshFilter objB, BooleanType type,bool moveToOrigin, ref Vector3 origin)
     {
         Bounds old = localBox;
         Vector3 objAmin = old.min;
@@ -82,6 +114,12 @@ public class SceneBox
         /////use computeshader
         texShader.SetSDFLater(TexMatrix, old, objB.transform, ncells, localBox.min);
         texShader.ComputeSDF(type, ref TexMatrix);
+
+        if (moveToOrigin)
+        {
+            origin = localBox.center;
+            localBox.center = Vector3.zero;
+        }
     }
 
 }

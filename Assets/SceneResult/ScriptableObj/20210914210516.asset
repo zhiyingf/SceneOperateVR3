@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f26ddcbf344f343b9d97e911a73572, type: 3}
+  m_Name: 20210914210516
+  m_EditorClassIdentifier: 
+  Size: {x: 62, y: 59, z: 54}
+  Bounds:
+    m_Center: {x: 2.0741935, y: 0.83836603, z: 0.37749013}
+    m_Extent: {x: 0.30581427, y: 0.29052997, z: 0.2692641}
+  SDFTexture: {fileID: 11700000, guid: fc48c5b1404597644a4e0fe6720a9bbd, type: 2}

@@ -161,20 +161,6 @@ public class UseSdfTexShader
         TexMatrix.wrapMode = TextureWrapMode.Clamp;
         TexMatrix.SetPixelData(tmp, 0);
         TexMatrix.Apply();
-        /////
-
-        ///////
-        //for (int i = 0; i < Npoint.x; i++)
-        //{
-        //    for (int j = 0; j < Npoint.y; j++)
-        //    {
-        //        for (int k = 0; k < Npoint.z; k++)
-        //        {
-        //            int idx = i + j * Npoint.x + k * Npoint.y * Npoint.x;
-        //            boxMatrix[i, j, k] = tmp[idx];
-        //        }
-        //    }
-        //}
     }
 
     private void initRenderTexture(ref RenderTexture renderTex, in Vector3Int size)
